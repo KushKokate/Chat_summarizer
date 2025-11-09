@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_BASE = "http://localhost:8000/api";
+const API_BASE = "https://chat-summarizer.zeabur.app/api";
+
 
 // === Conversations ===
 export const getConversations = () =>
