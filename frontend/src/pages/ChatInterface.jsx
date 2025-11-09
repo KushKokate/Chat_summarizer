@@ -9,7 +9,6 @@ import Sidebar from "../components/Sidebar";
 export default function ChatInterface() {
   const [convoId, setConvoId] = useState(null);
   const [messages, setMessages] = useState([]);
-  const [creating, setCreating] = useState(false);
   const [refreshFlag, setRefreshFlag] = useState(0);
 
   const startConversation = async () => {

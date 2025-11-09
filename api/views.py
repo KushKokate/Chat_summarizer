@@ -23,9 +23,16 @@ class ConversationDetailView(generics.RetrieveAPIView):
 # === POST: Create a new conversation ===
 @api_view(['POST'])
 def create_conversation(request):
-    title = request.data.get('title', 'Untitled Conversation')
-    conv = Conversation.objects.create(title=title)
-    return Response({'id': conv.id, 'title': conv.title})
+    try:
+        title = request.data.get('title', 'Untitled Conversation')
+        if not title:
+            title = "Untitled Conversation"
+
+        conv = Conversation.objects.create(title=title)
+        return Response({'id': conv.id, 'title': conv.title}, status=201)
+    except Exception as e:
+        print("Error in create_conversation:", e)
+        return Response({'error': str(e)}, status=500)
 
 
 # === POST: Send a message ===
