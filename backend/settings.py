@@ -9,6 +9,15 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+import os
+
+DEBUG = False
+
+ALLOWED_HOSTS = ["*", ".zeabur.app"]
+CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS = ["https://*.zeabur.app"]
+
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "fallback_key_for_dev")
 
 from pathlib import Path
 
@@ -56,7 +65,7 @@ MIDDLEWARE = [
 ]
 
 
-ROOT_URLCONF = 'backend.backend.urls'
+ROOT_URLCONF = 'backend.urls'
 
 
 TEMPLATES = [
@@ -74,7 +83,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backend.backend.wsgi.application'
+WSGI_APPLICATION = 'backend.wsgi.application'
 
 
 # Database
@@ -133,6 +142,5 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
 ]
 
-# 👇 Temporary dev mode shortcut (safe locally)
 CORS_ALLOW_ALL_ORIGINS = True
 
