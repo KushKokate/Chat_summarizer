@@ -143,4 +143,15 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://chat-summarizer.vercel.app",
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS = [
+    "https://chat-summarizer.vercel.app"
+]
+
+ALLOWED_HOSTS = ["*", ".zeabur.app", ".vercel.app"]
+
 
